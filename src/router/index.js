@@ -31,7 +31,8 @@ const routes = [
   // 定义 登录 的路由规则(一级)
   {
     path: '/login',
-    component: () => import('@/views/Login/index.vue'),
+    component: () =>
+      import(/* webpackChunkName: "Login" */ '@/views/Login/index.vue'),
     // 需求:如果你已经登录了,不要切换到登录页面
     // 路由的独享守卫
     beforeEnter: (to, from, next) => {
@@ -47,14 +48,16 @@ const routes = [
   // 定义 layout 的路由规则(一级)
   {
     path: '/layout',
-    component: () => import('@/views/Layout/index.vue'),
+    component: () =>
+      import(/* webpackChunkName: "Layout" */ '@/views/Layout/index.vue'),
     // layout的子路由规则
     children: [
       // 定义 home 的路由规则(二级)
       // 访问/layout/home时，展示 Home 组件
       {
         path: 'home',
-        component: () => import('@/views/Home/index.vue'),
+        component: () =>
+          import(/* webpackChunkName: "Home" */ '@/views/Home/index.vue'),
         meta: {
           scrollT: 0 // 保存首页离开时,滚动条位置
         }
@@ -63,34 +66,44 @@ const routes = [
       // 访问/layout/user时，展示 user 组件
       {
         path: 'user',
-        component: () => import('@/views/User/index.vue')
+        component: () =>
+          import(/* webpackChunkName: "User" */ '@/views/User/index.vue')
       }
     ]
   },
   // 定义 搜索 的路由规则(一级)
   {
     path: '/search',
-    component: () => import('@/views/Serach/index.vue')
+    component: () =>
+      import(/* webpackChunkName: "Search" */ '@/views/Serach/index.vue')
   },
   // 定义 搜索结果页 的路由规则(一级)
   {
     path: '/search_result/:kw',
-    component: () => import('@/views/Serach/SearchResult.vue')
+    component: () =>
+      import(
+        /* webpackChunkName: "SearchResult" */ '@/views/Serach/SearchResult.vue'
+      )
   },
   // 定义 文章详情页 的路由规则(一级)
   {
     path: '/detail',
-    component: () => import('@/views/ArticleDetail/index.vue')
+    component: () =>
+      import(
+        /* webpackChunkName: "ArticleDetail" */ '@/views/ArticleDetail/index.vue'
+      )
   },
   // 定义 编辑用户信息页面 的路由规则(一级)
   {
     path: '/user_editor',
-    component: () => import('@/views/User/UserEdit.vue')
+    component: () =>
+      import(/* webpackChunkName: "UserEdit" */ '@/views/User/UserEdit.vue')
   },
   // 定义 聊天页面 的路由规则(一级)
   {
     path: '/chat',
-    component: () => import('@/views/Chat/index.vue')
+    component: () =>
+      import(/* webpackChunkName: "Chat" */ '@/views/Chat/index.vue')
   }
 ]
 

@@ -1,3 +1,5 @@
+// 生产发布时去掉所有console打印语句
+import '@/utils/console.js'
 import Vue from 'vue'
 import App from './App.vue'
 // 导入路由模块，拿到路由的实例对象

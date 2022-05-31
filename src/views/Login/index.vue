@@ -92,7 +92,7 @@ export default {
       try {
         const res = await loginAPI(this.user)
         console.log(res, '登录成功')
-        Notify({ type: 'success', message: '求真务实，艰苦朴素！' })
+        Notify({ type: 'success', message: '求真务实！\n艰苦朴素！' })
         // 存储token
         setToken(res.data.data.token)
         setStorage('refresh_token', res.data.data.refresh_token) // 用于token续签
