@@ -1,4 +1,4 @@
-// 生产发布时去掉所有console语句
+// 生产发布环境时去掉所有console语句
 import '@/utils/console.js'
 import Vue from 'vue'
 import App from './App.vue'
