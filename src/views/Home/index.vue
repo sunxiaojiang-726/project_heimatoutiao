@@ -136,6 +136,7 @@ export default {
       this.$nextTick(() => {
         document.documentElement.scrollTop =
           this.channelScrollTObj[this.channelId]
+        document.body.scrollTop = this.channelScrollTObj[this.channelId]
       })
     },
 
@@ -199,7 +200,7 @@ export default {
       // 同时保存当前频道的滚动距离
       // 动态的给对象中的某个键赋值,用[]
       this.channelScrollTObj[this.channelId] =
-        document.documentElement.scrollTop
+        document.documentElement.scrollTop || document.body.scrollTop
       // console.log(this.channelScrollTObj)
     }
   },
@@ -234,7 +235,9 @@ export default {
     // window和document监听网页滚动的事件
     // html标签获取scrollTop,滚动的距离,和设置滚动的位置(被写入值)
     // 立刻设置滚动条的位置
+    // 照顾不同浏览器获取scrollTop方式的不一致，代码写两个即可
     document.documentElement.scrollTop = this.$route.meta.scrollT
+    document.body.scrollTop = this.$route.meta.scrollT
   },
   // 组件被缓存时，会自动触发组件的deactived生命周期函数
   deactivated() {

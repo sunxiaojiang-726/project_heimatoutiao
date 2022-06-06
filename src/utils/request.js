@@ -8,7 +8,7 @@ import { getToken, removeToken } from '@/utils/token.js' //, setToken
 
 const axios = theAxios.create({
   // 指定请求的根路径
-  baseURL: 'http://toutiao.itheima.net',
+  baseURL: 'http://geek.itheima.net',
   // 20秒超时时间（请求20秒无响应直接判定超时）
   timeout: 20000
 })
